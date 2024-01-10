@@ -46,7 +46,7 @@ Following are the solution.
   $ uname -r
   5.10.102.1-microsoft-standard-WSL2
   ```
-
+  
 - Download kernel source codes:
 
   ```bash
@@ -54,6 +54,12 @@ Following are the solution.
   $ sudo git clone https://github.com/microsoft/WSL2-Linux-Kernel.git 
   $ cd /usr/src/4.19.43-microsoft-standard
   $ sudo git checkout linux-msft-wsl-5.10.102.1 # checkout到我们的内核版本分支
+  ```
+
+  OR 
+  ```bash
+  $ VERSION=$(uname -r | cut -d '-' -f 1)
+  $ sudo git clone -b linux-msft-wsl-${VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git ${VERSION}-microsoft-standard && cd ${VERSION}-microsoft-standard
   ```
 
 - copy all files in:
